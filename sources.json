@@ -87,9 +87,12 @@
       "repo": "https://github.com/Leonxlnx/taste-skill.git",
       "pin": "12af471f627f866411b4bd785b19646d3672784c",
       "subpath": "skills/taste-skill",
-      "sparse": ["skills/taste-skill"],
+      "sparse": ["skills/taste-skill", "LICENSE"],
       "dest": "modules/taste",
-      "include": ["SKILL.md", "README.md", "references/**", "library/**", "assets/**", "scripts/**"],
+      "include": ["SKILL.md", "README.md", "LICENSE", "references/**", "library/**", "assets/**", "scripts/**"],
+      "extras": [
+        { "from": "LICENSE", "to": "LICENSE" }
+      ],
       "exclude": ["evals/**"],
       "adapterSkips": [
         "Summarize `.taste-skill/` direction output into the project's DESIGN.md so other modules can read it.",

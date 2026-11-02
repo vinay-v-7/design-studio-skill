@@ -1,6 +1,7 @@
 ---
 name: design-studio
 description: "Unified design system for building and reviewing clean, distinctive, non-generic interfaces: websites, landing pages, product UI, dashboards, forms, web and native app screens, HTML slide decks, and diagrams. Use whenever the user asks to design, build, redesign, restyle, polish, critique, audit or roast a UI; pick a palette, font pairing or style; says something looks generic, templated or AI-made; wants a presentation/deck in HTML; or wants an architecture, flow, sequence, ER, timeline or other diagram. Combines taste-skill art direction, Impeccable craft commands, the ui-ux-pro-max database, AI-pattern review, frontend-slides with beautiful-html-templates, and diagram-design under one anti-slop doctrine and quality gate."
+license: MIT
 metadata:
   version: "1.0.0"
 ---
