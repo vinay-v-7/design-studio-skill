@@ -1,0 +1,61 @@
+{
+  "modules": {
+    "impeccable": {
+      "sha": "e89e3ada3e875a89ac2c5d33d11e65ebef6fe285",
+      "type": "github",
+      "dest": "modules/impeccable",
+      "repo": "https://github.com/pbakaus/impeccable.git",
+      "path": null,
+      "vendoredAt": "2026-11-02T07:30:25.411Z"
+    },
+    "slides": {
+      "sha": "9906a34d640d2111f724544cbc50f7f130569ae1",
+      "type": "github",
+      "dest": "modules/slides",
+      "repo": "https://github.com/zarazhangrui/frontend-slides.git",
+      "path": null,
+      "vendoredAt": "2026-11-02T07:30:30.266Z"
+    },
+    "templates": {
+      "sha": "e5e204fb1f3b06290846e7dcd7aceddabeceec8c",
+      "type": "github",
+      "dest": "modules/slides/template-library",
+      "repo": "https://github.com/zarazhangrui/beautiful-html-templates.git",
+      "path": null,
+      "vendoredAt": "2026-11-02T07:31:06.237Z"
+    },
+    "diagrams": {
+      "sha": "0cf73c3fcc56667ad91a9a04c439ac6ccfabc9d1",
+      "type": "github",
+      "dest": "modules/diagrams",
+      "repo": "https://github.com/cathrynlavery/diagram-design.git",
+      "path": null,
+      "vendoredAt": "2026-11-02T07:32:40.842Z"
+    },
+    "taste": {
+      "sha": "12af471f627f866411b4bd785b19646d3672784c",
+      "type": "github",
+      "dest": "modules/taste",
+      "repo": "https://github.com/Leonxlnx/taste-skill.git",
+      "path": null,
+      "vendoredAt": "2026-11-02T07:32:33.912Z"
+    },
+    "ui-ux-pro-max": {
+      "sha": "3a7f6d1e8b4d92fc66153ff90b5e0c8fbd5f2ee2",
+      "type": "local",
+      "dest": "modules/ui-ux-pro-max",
+      "repo": null,
+      "path": "../Design Skill",
+      "vendoredAt": "2026-11-02T07:31:50.032Z"
+    },
+    "ai-design-review": {
+      "sha": "3fdf71ef3b960fe917618c6af5a7fabd4e6e6c8f",
+      "type": "local",
+      "dest": "modules/ai-design-review",
+      "repo": null,
+      "path": "../AI Design Skill",
+      "vendoredAt": "2026-11-02T07:35:45.463Z"
+    }
+  },
+  "generated": "2026-11-02T07:35:45.311Z"
+}

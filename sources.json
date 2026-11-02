@@ -1,0 +1,235 @@
+{
+  "modules": [
+    {
+      "id": "ui-ux-pro-max",
+      "type": "local",
+      "path": "../Design Skill",
+      "dest": "modules/ui-ux-pro-max",
+      "include": ["SKILL.md", "scripts/**", "data/**", "LICENSE"],
+      "exclude": ["**/_sync_all.py", "data/_sync_all.py"],
+      "adapterSkips": [
+        "Use `python` when `python3` is missing (Windows).",
+        "Detect the project's real stack; do not assume React Native.",
+        "Database picks are inputs. They must pass doctrine/principles.md before use."
+      ],
+      "patches": [
+        {
+          "file": "MODULE.md",
+          "find": "~/.claude/skills/ui-ux-pro-max/",
+          "replace": "<skill-dir>/",
+          "optional": true
+        },
+        {
+          "file": "MODULE.md",
+          "find": "~/.cursor/skills/ui-ux-pro-max/",
+          "replace": "<skill-dir>/"
+        },
+        {
+          "file": "MODULE.md",
+          "find": "- **Stack**: React Native (this project's only tech stack)",
+          "replace": "- **Stack**: detect the stack from the project (package.json, pubspec.yaml, etc.)"
+        },
+        {
+          "file": "MODULE.md",
+          "find": "```powershell\nwinget install Python.Python.3.12\n```",
+          "replace": "```powershell\nwinget install Python.Python.3.12\n```\n\nOn Windows, if `python3` is missing, use `python` for every command below."
+        }
+      ]
+    },
+    {
+      "id": "ai-design-review",
+      "type": "local",
+      "path": "../AI Design Skill",
+      "dest": "modules/ai-design-review",
+      "include": ["SKILL.md", "references/**", "scripts/**", "LICENSE", "evals/*/files/**"],
+      "exclude": ["evals/**/graders/**", "evals/**/*.md", "evals/**/*.yaml", "evals/**/*.sh"],
+      "adapterSkips": [
+        "Keep this module's report format for review/audit/roast routes.",
+        "Scanner IDs (CL1, LY5, CP1, SD1–SD5, …) are the canonical vocabulary."
+      ],
+      "patches": []
+    },
+    {
+      "id": "impeccable",
+      "type": "github",
+      "repo": "https://github.com/pbakaus/impeccable.git",
+      "pin": "e89e3ada3e875a89ac2c5d33d11e65ebef6fe285",
+      "subpath": ".claude/skills/impeccable",
+      "sparse": [".claude/skills/impeccable", "LICENSE", "NOTICE.md"],
+      "dest": "modules/impeccable",
+      "include": ["**"],
+      "exclude": ["**/.agents/**", "**/*.toml"],
+      "extras": [
+        { "from": "LICENSE", "to": "LICENSE" },
+        { "from": "NOTICE.md", "to": "NOTICE.md" }
+      ],
+      "adapterSkips": [
+        "Do not run `pin` or `unpin`. They write standalone skills into the skills root and recreate clutter.",
+        "Do not load Codex `.agents/*.toml` subagents; they are not vendored.",
+        "The Impeccable hook is opt-in. Never enable it silently. See the design-studio SKILL.md hook policy."
+      ],
+      "patches": [
+        {
+          "file": "**/*",
+          "find": ".claude/skills/impeccable/",
+          "replace": "<skill-dir>/"
+        },
+        {
+          "file": "MODULE.md",
+          "find": "**Pin / Unpin:** `<skill-dir>/scripts/impeccable pin <pin|unpin> <command>` creates or removes a standalone `/<command>` shortcut. Report the script's result concisely; relay stderr verbatim on error.",
+          "replace": "**Pin / Unpin:** Disabled in design-studio. Do not run `pin` or `unpin`; they write standalone skills into the skills root."
+        }
+      ]
+    },
+    {
+      "id": "taste",
+      "type": "github",
+      "repo": "https://github.com/Leonxlnx/taste-skill.git",
+      "pin": "12af471f627f866411b4bd785b19646d3672784c",
+      "subpath": "skills/taste-skill",
+      "sparse": ["skills/taste-skill"],
+      "dest": "modules/taste",
+      "include": ["SKILL.md", "README.md", "references/**", "library/**", "assets/**", "scripts/**"],
+      "exclude": ["evals/**"],
+      "adapterSkips": [
+        "Summarize `.taste-skill/` direction output into the project's DESIGN.md so other modules can read it.",
+        "Requires Node 22+ and Chrome/Edge for inspect. If missing, skip that tier and say so."
+      ],
+      "patches": [
+        {
+          "file": "README.md",
+          "find": "`~/.claude/skills/design-taste-frontend/`",
+          "replace": "`<skill-dir>/` (this design-studio module)"
+        }
+      ]
+    },
+    {
+      "id": "slides",
+      "type": "github",
+      "repo": "https://github.com/zarazhangrui/frontend-slides.git",
+      "pin": "9906a34d640d2111f724544cbc50f7f130569ae1",
+      "subpath": "",
+      "sparse": [
+        "SKILL.md",
+        "STYLE_PRESETS.md",
+        "animation-patterns.md",
+        "html-template.md",
+        "viewport-base.css",
+        "bold-template-pack",
+        "scripts",
+        "LICENSE"
+      ],
+      "dest": "modules/slides",
+      "include": [
+        "SKILL.md",
+        "STYLE_PRESETS.md",
+        "animation-patterns.md",
+        "html-template.md",
+        "viewport-base.css",
+        "bold-template-pack/**",
+        "scripts/**",
+        "LICENSE"
+      ],
+      "exclude": ["plugins/**", ".claude-plugin/**"],
+      "adapterSkips": [
+        "frontend-slides is the master deck workflow. beautiful-html-templates lives at template-library/ and is last-resort reference.",
+        "If the user wants .pptx output, defer to the pptx skill."
+      ],
+      "patches": [
+        {
+          "file": "MODULE.md",
+          "find": "Do not read or copy `template.html` unless the selected final `design.md` is missing a critical implementation detail.",
+          "replace": "Do not read or copy `template-library/templates/<id>/template.html` unless the selected final `design.md` is missing a critical implementation detail."
+        },
+        {
+          "file": "MODULE.md",
+          "find": "Use `template.html` only as a last-resort implementation reference for the selected template.",
+          "replace": "Use `template-library/templates/<id>/template.html` only as a last-resort implementation reference for the selected template."
+        },
+        {
+          "file": "bold-template-pack/README.md",
+          "find": "Do not read or copy `template.html` from the source template library unless a",
+          "replace": "Do not read or copy `template-library/templates/<id>/template.html` unless a"
+        }
+      ]
+    },
+    {
+      "id": "templates",
+      "type": "github",
+      "repo": "https://github.com/zarazhangrui/beautiful-html-templates.git",
+      "pin": "e5e204fb1f3b06290846e7dcd7aceddabeceec8c",
+      "subpath": "",
+      "sparse": ["templates", "index.json", "runtime", "AGENTS.md", "LICENSE"],
+      "dest": "modules/slides/template-library",
+      "include": ["templates/**", "index.json", "runtime/**", "AGENTS.md", "LICENSE"],
+      "exclude": ["screenshots/**", "**/screenshots/**"],
+      "adaptSkill": false,
+      "adapterSkips": [],
+      "patches": [
+        {
+          "file": "AGENTS.md",
+          "find": "using `open <path>` (macOS)",
+          "replace": "using `Start-Process <path>` (Windows), `open <path>` (macOS), or `xdg-open <path>` (Linux)"
+        },
+        {
+          "file": "AGENTS.md",
+          "find": "Open the finished deck with `open <path>`.",
+          "replace": "Open the finished deck with `Start-Process <path>` (Windows), `open <path>` (macOS), or `xdg-open <path>` (Linux)."
+        },
+        {
+          "file": "AGENTS.md",
+          "find": "Use `open <path>`.",
+          "replace": "Use `Start-Process <path>` (Windows), `open <path>` (macOS), or `xdg-open <path>` (Linux)."
+        },
+        {
+          "file": "AGENTS.md",
+          "find": "Use `open /absolute/path/to/file.html`.",
+          "replace": "Use `Start-Process <path>` (Windows), `open <path>` (macOS), or `xdg-open <path>` (Linux)."
+        }
+      ]
+    },
+    {
+      "id": "diagrams",
+      "type": "github",
+      "repo": "https://github.com/cathrynlavery/diagram-design.git",
+      "pin": "0cf73c3fcc56667ad91a9a04c439ac6ccfabc9d1",
+      "subpath": "skills/diagram-design",
+      "sparse": ["skills/diagram-design", "commands", "scripts/verify-geometry.py", "LICENSE"],
+      "dest": "modules/diagrams",
+      "include": ["**"],
+      "exclude": ["docs/**", "**/screenshots/**"],
+      "extras": [
+        { "from": "commands", "to": "commands" },
+        { "from": "scripts/verify-geometry.py", "to": "tools/verify-geometry.py" },
+        { "from": "LICENSE", "to": "LICENSE" }
+      ],
+      "adapterSkips": [
+        "Project DESIGN.md tokens win over this module's Instrument Serif/Geist house style. Use profile/onboarding when a project has tokens.",
+        "Routable sub-commands live in commands/: doctor, export, import-mermaid, import-drawio, import-excalidraw, profile."
+      ],
+      "patches": [
+        {
+          "file": "**/*.md",
+          "find": "python3 <repo-root>/scripts/verify-geometry.py",
+          "replace": "python <skill-dir>/tools/verify-geometry.py"
+        },
+        {
+          "file": "MODULE.md",
+          "find": "python3 scripts/verify-geometry.py",
+          "replace": "python <skill-dir>/tools/verify-geometry.py",
+          "optional": true
+        },
+        {
+          "file": "**/*.md",
+          "find": "~/.claude/skills/",
+          "replace": "<skill-dir>/"
+        },
+        {
+          "file": "**/*.md",
+          "find": "~/.cursor/skills/",
+          "replace": "<skill-dir>/"
+        }
+      ]
+    }
+  ]
+}
